@@ -1,0 +1,200 @@
+@use "../abstracts" as *;
+
+.footer {
+  background-color: #151515;
+
+  &__container {
+    @extend %container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $section-padding-v 0;
+
+    @include respond-to("medium") {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  &__hr {
+    background-color: #333;
+    height: 0.1rem;
+    margin: 4rem 0;
+  }
+
+  &__col {
+    flex: 1;
+    color: #fff;
+    font-size: $text-sm;
+
+    & + & {
+      margin-top: 4rem;
+    }
+
+    @include respond-to("medium") {
+      & + & {
+        margin-top: 0;
+      }
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      & a {
+        transition: color 0.3s;
+
+        &:hover {
+          color: #fff;
+        }
+        @include link-hover($c-text-light, 0.1rem);
+      }
+    }
+
+    & a:focus-visible:not(.social-links__link) {
+      outline: 0.1rem solid #fff;
+    }
+  }
+
+  &__logo {
+    float: left;
+
+    > a:focus-visible {
+      opacity: 0.5;
+    }
+  }
+
+  &__sub-heading {
+    margin-top: 4rem;
+    font-size: $text-md;
+
+    &:first-of-type {
+      margin-top: 8rem;
+      clear: left;
+    }
+  }
+
+  &__contact {
+    margin-bottom: 1rem;
+    display: table;
+
+    &-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+
+    &-info {
+      width: calc(100% - 3rem);
+      display: block;
+      float: right;
+    }
+
+    &-link[href] {
+      @extend %link;
+    }
+  }
+
+  &__link {
+    color: $c-text-light;
+    margin-bottom: 0.4rem;
+  }
+
+  &__heading {
+    font-variant: small-caps;
+    font-size: $text-lg;
+
+    &::after {
+      content: "";
+      width: 1.8rem;
+      height: 0.4rem;
+      background-color: $c-red;
+      margin-top: 1.4rem;
+      display: block;
+    }
+  }
+
+  &__payments {
+    text-align: center;
+
+    &-image {
+      -webkit-user-drag: none;
+    }
+  }
+
+  & .newsletter {
+    &__heading {
+      font-size: $text-lg;
+      text-transform: uppercase;
+    }
+
+    &__info {
+      color: $c-text-light;
+    }
+
+    &__input {
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    &__disclaimer {
+      font-size: $text-xs;
+      color: $c-text-gray;
+      margin-top: 2rem;
+
+      & a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  & .gutter {
+    width: 100%;
+    color: $c-text-gray;
+    border-top: 0.1rem solid #333;
+
+    &__container {
+      @extend %container;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding: 2rem 0 3rem 0;
+      font-size: $text-sm;
+      text-align: center;
+
+      @include respond-to("small") {
+        flex-direction: row;
+        padding: 1rem 0;
+      }
+    }
+
+    &__terms {
+      margin: 0.8rem 0;
+
+      & a:focus-visible {
+        outline: 0.1rem solid #fff;
+      }
+
+      &-space {
+        display: inline-block;
+        width: 1.5rem;
+      }
+
+      &-link {
+        text-decoration: underline;
+      }
+    }
+
+    &__copy {
+      @extend %center-content;
+      font-size: $text-xs;
+      order: -1;
+
+      @include respond-to("small") {
+        order: 0;
+      }
+    }
+
+    &__lang-currency {
+      padding-top: 0.5rem;
+    }
+  }
+}

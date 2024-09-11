@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  background: none;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+input,
+label,
+button,
+textarea,
+select,
+optgroup {
+  font: inherit;
+  color: inherit;
+}
+
+a,
+a[href],
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+svg {
+  vertical-align: middle;
+}

@@ -1,0 +1,81 @@
+@use "../abstracts" as *;
+
+.filter {
+  width: 100%;
+  font-size: $text-md;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  z-index: 101;
+  background-color: $c-background-color;
+  transform: translateX(-100%);
+  transition: transform 0.3s $timing-func-ui;
+
+  @include respond-to("large") {
+    width: 0;
+    height: 0;
+    position: relative;
+    top: unset;
+    bottom: unset;
+    z-index: 0;
+    overflow: hidden;
+
+    &--active {
+      width: getWidth(3);
+      height: auto;
+      overflow: unset;
+    }
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__head {
+    background-color: $c-background-black;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    font-size: $text-xs;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    @include respond-to("large") {
+      padding: 1rem 2.5rem;
+      display: none;
+    }
+  }
+
+  &__hide {
+    font-size: 1.6rem;
+  }
+
+  &__confirm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    position: sticky;
+    bottom: 0;
+    background-color: $c-background-color;
+
+    @include respond-to("large") {
+      padding: 1rem 2.5rem;
+    }
+  }
+
+  &__clear-all {
+    background-color: #fff;
+    color: $c-text-black;
+    border: 0.1rem solid $c-control-gray;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $c-control-black;
+      background-color: #fff;
+    }
+  }
+}

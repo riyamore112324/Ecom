@@ -1,0 +1,53 @@
+@use "../abstracts" as *;
+
+.social-links {
+  $self: &;
+
+  &--sm {
+    font-size: 2rem;
+
+    & #{ $self }__link--tiktok {
+      font-size: 1.8rem;
+    }
+  }
+
+  &--md {
+    font-size: 2.4rem;
+
+    & #{ $self }__link--tiktok {
+      font-size: 2rem;
+    }
+  }
+
+  &--lg {
+    font-size: 2.7rem;
+
+    & #{ $self }__link--tiktok {
+      font-size: 2.3rem;
+    }
+  }
+
+  &__link {
+    margin-right: 1rem;
+    color: white;
+
+    > svg {
+      transition: transform 0.3s $timing-func-ui, color 0.3s $timing-func-ui;
+    }
+
+    &:focus-visible > svg,
+    &:hover > svg {
+      transform: scale(1.2);
+      color: $c-red;
+    }
+  }
+
+  &--vertical {
+    text-align: center;
+
+    #{$self}__link {
+      display: block;
+      margin: 0.8rem 0;
+    }
+  }
+}

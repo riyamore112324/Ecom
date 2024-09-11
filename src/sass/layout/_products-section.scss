@@ -1,0 +1,73 @@
+@use "../abstracts" as *;
+
+.products-section {
+  width: 100%;
+  background-color: #fff;
+
+  &__container {
+    @extend %container;
+    padding: $section-padding-v 0 6rem 0;
+  }
+
+  &__heading {
+    @extend %section-heading;
+    color: $c-text-black;
+  }
+
+  &__products-link {
+    text-align: center;
+    font-size: $text-sm;
+    text-transform: uppercase;
+
+    > a {
+      font-weight: 400;
+      color: $c-text-dark;
+      transition: border-color 0.6s $timing-func-ui, color 0.6s $timing-func-ui;
+      border-bottom: 0.1rem solid $c-text-dark;
+
+      &:focus-visible {
+        outline: 0.1rem solid $c-text-dark;
+      }
+
+      &:hover {
+        color: #000;
+        border-color: transparent;
+      }
+    }
+
+    @include link-arrow($c-text-dark);
+  }
+
+  &__products {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 3rem 0 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+
+    @include respond-to("small") {
+      gap: 1.5rem;
+    }
+  }
+
+  &__scroll {
+    text-align: right;
+    margin-bottom: 3rem;
+
+    &-button {
+      font-size: 2.5rem;
+      color: $c-text-light;
+
+      &:hover {
+        color: $c-text-dark;
+      }
+
+      & + & {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

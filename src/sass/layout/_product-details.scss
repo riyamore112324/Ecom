@@ -1,0 +1,79 @@
+@use "../abstracts" as *;
+
+.product-details {
+  grid-column: 1 / 13;
+  overflow: hidden;
+
+  &__tabs {
+    & ul {
+      display: flex;
+      justify-content: flex-start;
+      border-bottom: 0.1rem solid #ccc;
+      color: $c-text-gray;
+      font-weight: 600;
+
+      & li {
+        margin-right: 2rem;
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  &__tab--active {
+    color: $c-text-black;
+    position: relative;
+
+    ::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0.3rem;
+      background-color: $c-red;
+      position: absolute;
+      bottom: -0.3rem;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__panel {
+    width: 100%;
+    padding: 2rem 0;
+
+    h2 {
+      font-size: $text-lg;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+
+    & .reviews {
+      margin-top: 2rem;
+
+      &__avg-ratings {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__prompt {
+    margin-bottom: 2rem;
+  }
+
+  &__link[href] {
+    @extend %link;
+  }
+
+  &__reviews {
+    &-form {
+      & .stars {
+        margin-bottom: 2rem;
+        font-size: 3rem;
+      }
+    }
+  }
+}

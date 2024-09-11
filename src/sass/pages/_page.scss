@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.page {
+  .page__container {
+    @extend %page-container;
+  }
+}
+
+.main-heading {
+  @extend %section-heading;
+}

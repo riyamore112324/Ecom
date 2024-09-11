@@ -1,0 +1,114 @@
+@use "../abstracts" as *;
+
+.product-page__wrapper {
+  @extend %container;
+}
+
+.product-view {
+  $self: &;
+
+  @extend %container;
+  padding-top: 3rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(12, 1fr);
+
+  > div {
+    background-color: #fff;
+    padding: 1rem;
+
+    @include respond-to("small") {
+      padding: 2rem;
+    }
+  }
+
+  &__cart {
+    grid-column: 1 / 13;
+    font-size: $text-md;
+
+
+    @include respond-to("medium") {
+      grid-column: 8 / 13;
+    }
+  }
+
+  &__share-button {
+    @extend %round-button;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: 1rem;
+  }
+
+  &__name {
+    font-size: $text-xl;
+    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 3.7rem;
+  }
+
+  &__gender {
+    text-transform: uppercase;
+    font-size: $text-sm;
+    color: $c-text-dark;
+  }
+
+  &__ratings,
+  &__price {
+    margin-top: 2rem;
+  }
+
+  &__price {
+    font-size: $text-lg;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+
+    > span {
+      font-weight: 400;
+      color: $c-text-dark;
+    }
+  }
+
+  &__shipping {
+    font-size: $text-xs;
+    font-weight: 600;
+  }
+
+  &__shipping-info {
+    font-size: $text-xs;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: $c-text-dark;
+  }
+
+  &__details {
+    padding-top: 1rem;
+
+    &-info {
+      text-transform: capitalize;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__sold {
+    font-size: $text-sm;
+    margin: 0.5rem 0 3rem 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__buy {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+.related-products {
+  @extend %container;
+  padding: $section-padding-v 0 6rem 0;
+
+  &__heading {
+    @extend %section-heading;
+    color: $c-text-black;
+    margin-bottom: 3rem;
+  }
+}

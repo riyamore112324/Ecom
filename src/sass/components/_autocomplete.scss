@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+.autocomplete {
+  width: 100%;
+  max-width: 20rem;
+  margin-bottom: 1.5rem;
+  color: $c-text-black;
+  position: relative;
+
+  &__label {
+    @extend %form-label;
+
+    &-text {
+      @extend %form-label-text;
+    }
+
+    &-asterisk {
+      @extend %form-label-asterisk;
+    }
+  }
+
+  &__input {
+    display: block;
+    height: 3.2rem;
+    position: relative;
+  }
+
+  &__control {
+    @extend %text-input-field;
+  }
+
+  &__toggle-icon {
+    @extend %text-input-icon;
+    cursor: pointer;
+  }
+
+  &__menu {
+    @extend %dropdown-menu;
+    &--collapsed {
+      @extend %dropdown-menu--collapsed;
+    }
+  }
+
+  &__option {
+    @extend %dropdown-option;
+  }
+}

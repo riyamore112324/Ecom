@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: $c-background-color;
+  color: $c-text-black;
+
+  &.grabbing #grab-cover {
+    cursor: grabbing;
+    @extend %full-size;
+    z-index: 1000;
+    position: fixed;
+  }
+}
+
+html,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+strong {
+  font-weight: 600;
+}
+
+::selection {
+  color: #fff;
+  background: #555;
+}
+
+.motion-element {
+  transform-origin: top left;
+}

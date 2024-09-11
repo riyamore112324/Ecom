@@ -1,0 +1,241 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+
+%container {
+  width: calc(100% - 3rem);
+  max-width: 144rem;
+  margin: 0 auto;
+
+  @include m.respond-to("large") {
+    width: calc(100% - 5rem);
+  }
+}
+
+%page-container {
+  width: 90%;
+  max-width: 102.4rem;
+  margin: 3rem auto 10rem;
+
+  @include m.respond-to("large") {
+    width: calc(70%);
+  }
+}
+
+%truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%section-heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-size: v.$text-xxl;
+  @extend %truncate;
+}
+
+%dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  border: 0.1rem solid v.$c-control-gray;
+  border-top: none;
+  font-size: v.$text-sm;
+  max-height: 20rem;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  opacity: 1;
+  transition: height 0s 0.6s, opacity 0.6s v.$timing-func-ui;
+
+  &--collapsed {
+    height: 0rem;
+    opacity: 0;
+    border-bottom: none;
+  }
+}
+
+%dropdown-option {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+
+  &:focus,
+  &:hover,
+  &.focused {
+    background-color: #f3f3f3;
+  }
+
+  &:active {
+    background-color: #ccc;
+  }
+}
+
+%form-label {
+  width: 100%;
+  height: 100%;
+
+  &-text {
+    font-weight: 400;
+    font-size: v.$text-sm;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &-asterisk {
+    color: v.$c-text-red;
+  }
+}
+
+%text-input-field {
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  font-size: v.$text-sm;
+  display: block;
+  margin: 0;
+  padding: 0 1rem;
+  padding-right: 3rem;
+  outline: none;
+  border: 0.1rem solid v.$c-control-gray;
+  transition: border-color 0.3s v.$timing-func-ui;
+
+  &:focus {
+    border-color: v.$c-control-black;
+  }
+
+  &--error {
+    border-color: #ff0000;
+
+    &:focus {
+      border-color: #ff0000;
+    }
+  }
+}
+
+%text-input-icon {
+  border-color: v.$c-control-black;
+  position: absolute;
+  top: 0.1rem;
+  bottom: 0.1rem;
+  right: 0.1rem;
+  width: 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+%form-button {
+  @extend %truncate;
+  @extend %center-content;
+  background-color: v.$c-background-black;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0.7rem 2rem;
+  font-weight: 400;
+  font-size: v.$text-sm;
+  transition: background-color 0.3s v.$timing-func-ui;
+
+  &:hover,
+  &:focus-visible {
+    background-color: mix(v.$c-background-black, #fff, 85%);
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: mix(v.$c-background-black, #fff, 85%);
+    cursor: not-allowed;
+  }
+
+  &--lg {
+    padding: 1rem 2.2rem;
+  }
+
+  &--invert {
+    background-color: #fff;
+    color: v.$c-text-black;
+    box-shadow: inset 0 0 0 0.1rem v.$c-text-black;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #efefef;
+    }
+  }
+}
+
+%product-grid {
+  @extend %container;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  padding-bottom: 3rem;
+  gap: 1.5rem;
+
+  @include m.respond-to("medium") {
+    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include m.respond-to("x-large") {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+%round-button {
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: v.$c-text-dark;
+  font-size: v.$text-lg;
+  transition: background-color 0.3s v.$timing-func-ui;
+
+  &:hover,
+  &:focus-visible {
+    background-color: mix(v.$c-gray, #fff, 80%);
+  }
+}
+
+%link {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+%checkbox {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border: 0.1rem solid v.$c-control-black;
+  font-weight: 400;
+  font-size: v.$text-sm;
+
+  &--checked {
+    background-color: v.$c-gray;
+  }
+}
+
+%full-size {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+%vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

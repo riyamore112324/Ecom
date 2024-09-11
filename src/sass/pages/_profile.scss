@@ -1,0 +1,30 @@
+@use "../abstracts" as *;
+
+.profile {
+  @extend %page-container;
+
+  &__main-heading {
+    font-size: $text-xl;
+  }
+
+  &__heading {
+    margin-bottom: 1.5rem;
+    font-size: $text-lg;
+    display: block;
+    font-weight: 600;
+  }
+
+  &__fieldset {
+    margin-top: 3rem;
+  }
+
+  &__name-input,
+  &__address-input {
+    width: calc(50% - 0.75rem);
+    float: left;
+
+    &:nth-child(2n) {
+      float: right;
+    }
+  }
+}

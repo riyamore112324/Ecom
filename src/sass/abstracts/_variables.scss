@@ -1,0 +1,59 @@
+$c-background-color: #fafafa;
+$c-background-dark: #020201;
+$c-background-black: #0e0e0e;
+$c-red: #ff073a;
+$c-red-dark: #e00c17;
+$c-red-light: #e25058;
+$c-gray: #dbdbdb;
+$c-link: #0368da;
+$c-text-gray: #aeaeae;
+$c-text-light: #acacac;
+$c-text-dark: #7d7d7d;
+$c-text-black: #1b1b1b;
+$c-text-red: #e91313;
+$c-backdrop: #22222288;
+$c-control-gray: #bbb;
+$c-control-black: #333;
+
+$text-xs: 1.24rem;
+$text-sm: 1.36rem;
+$text-md: 1.52rem;
+$text-lg: clamp(1.87rem, 0.5rem + 1.4vw, 1.98rem); // 1.92rem
+$text-xl: clamp(2.65rem, 0.8rem + 1.8vw, 3.2rem); // 2.87rem
+$text-xxl: clamp(3.25rem, 1.2rem + 2vw, 3.8rem); // 3.65rem
+
+$announcement-height: 3.5rem;
+$header-height: 6.5rem;
+$header-height-lg: 8rem;
+$section-padding-v: 5rem;
+
+$breakpoints: (
+  "x-small": (
+    min-width: 480px,
+  ),
+  "small": (
+    min-width: 576px,
+  ),
+  "medium": (
+    min-width: 768px,
+  ),
+  "large": (
+    min-width: 992px,
+  ),
+  "x-large": (
+    min-width: 1200px,
+  ),
+  "xx-large": (
+    min-width: 1440px,
+  ),
+  "xx-small-h": (
+    max-height: 320px,
+  ),
+  "small-h": (
+    max-height: 576px,
+  ),
+) !default;
+
+$timing-func-ui: cubic-bezier(0.15, 0.75, 0.5, 1);
+$timing-func-ui-pop: cubic-bezier(0.46, 1.08, 0.88, 1.41);
+$timing-func-img: cubic-bezier(0, 0, 0.2, 1);

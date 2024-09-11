@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+
+.text-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  color: $c-text-black;
+
+  &__label {
+    @extend %form-label;
+
+    &-text {
+      @extend %form-label-text;
+    }
+
+    &-asterisk {
+      @extend %form-label-asterisk;
+    }
+  }
+
+  &__error {
+    color: #ff0000;
+    font-size: $text-xs;
+  }
+
+  &__input {
+    display: block;
+    height: 3.2rem;
+    position: relative;
+
+    &--multiline {
+      height: auto;
+    }
+  }
+
+  &__control {
+    @extend %text-input-field;
+
+    &:not(:focus):not(:placeholder-shown):invalid {
+      background-color: #ffebeb;
+    }
+
+    &--error {
+      @extend %text-input-field--error;
+    }
+
+    &-btn {
+      @extend %text-input-icon;
+      background-color: #fff;
+    }
+
+    &--multiline {
+      padding: 1rem;
+      height: auto;
+      resize: none;
+    }
+  }
+}

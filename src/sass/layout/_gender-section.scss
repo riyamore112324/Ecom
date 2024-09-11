@@ -1,0 +1,142 @@
+@use "../abstracts" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+
+.gender {
+  $self: &;
+
+  width: 100%;
+  background-color: $c-background-dark;
+
+  &__container {
+    @extend %container;
+    padding: $section-padding-v 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include respond-to("small") {
+      flex-direction: row;
+    }
+  }
+
+  &__heading {
+    @extend %section-heading;
+  }
+
+  &__tall-img {
+    position: relative;
+    height: calc(100vw - 3rem);
+
+    @include respond-to("small") {
+      width: 45%;
+      max-height: 100rem;
+      height: 40vw;
+      overflow: hidden;
+    }
+  }
+
+  &__text-overlay {
+    @extend %full-size;
+    @extend %center-content;
+    font-family: "Shrikhand", sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 12vw;
+    user-select: none;
+    opacity: 0.7;
+    letter-spacing: 0.3rem;
+
+    @include respond-to("small") {
+      font-size: 5.2vw;
+    }
+  }
+
+  &__grid {
+    height: calc(100vw - 3rem);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 1rem;
+    position: relative;
+
+    @include respond-to("small") {
+      width: 55%;
+      max-height: 100rem;
+      height: 40vw;
+      gap: 1.5rem;
+    }
+  }
+
+  &__block {
+    &-link {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:focus-visible img,
+      &:hover img {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    &:nth-of-type(1) {
+      grid-area: 1 / 1 / 6 / 7;
+    }
+
+    &:nth-of-type(2) {
+      grid-area: 1 / 7 / 6 / 13;
+    }
+
+    &:nth-of-type(3) {
+      grid-area: 6 / 1 / 11 / 5;
+    }
+
+    &:nth-of-type(4) {
+      grid-area: 6 / 5 / 11 / 9;
+    }
+
+    &:nth-of-type(5) {
+      grid-area: 6 / 9 / 11 / 13;
+    }
+
+    // next image element
+    & span {
+      height: calc(100% - 3.5rem) !important;
+
+      & img {
+        object-fit: cover;
+        object-position: bottom;
+        opacity: 1;
+        transition: transform 0.6s $timing-func-img,
+          opacity 0.6s $timing-func-img;
+
+        @include respond-to("small") {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &-title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      margin: 0;
+      height: 3rem;
+      text-transform: lowercase;
+      font-variant: small-caps;
+      font-weight: normal;
+      font-size: $text-md;
+
+      & span {
+        color: #fff;
+        border-bottom: 0.1rem solid #fff;
+      }
+    }
+  }
+}

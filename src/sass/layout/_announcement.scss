@@ -1,0 +1,115 @@
+@use "../abstracts" as *;
+
+.announcement {
+  $self: &;
+
+  width: 100%;
+  height: $announcement-height;
+  background-color: #fff;
+  color: $c-link;
+  transition: height 0.3s $timing-func-ui, visibility 0.3s;
+
+  &--hidden {
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+  }
+
+  &__container {
+    @extend %container;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(to right, #fff 10%, #ffffff80 60%, #ffffff00);
+      display: block;
+      width: 15%;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      transform: scale(-1);
+      right: $announcement-height;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    font-size: $text-xs;
+    font-weight: 600;
+    line-height: $announcement-height;
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover #{$self}__marquee,
+    &:focus-within #{$self}__marquee {
+      animation-play-state: paused;
+    }
+  }
+
+  &__marquee {
+    @include inline-animation(30s, infinite, 0, linear) {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &__inner {
+    display: inline-block;
+    padding: 0 5rem;
+  }
+
+  &__loader {
+    height: 100%;
+    display: flex;
+
+    &-spinner {
+      margin: auto;
+      border-color: $c-background-dark $c-background-dark transparent;
+      display: block !important;
+    }
+  }
+
+  &__info-icon {
+    display: inline;
+    color: $c-link;
+    font-size: $text-md;
+    margin-left: 0.5rem;
+    vertical-align: sub;
+  }
+
+  &__close {
+    @extend %center-content;
+    position: absolute;
+    width: $announcement-height;
+    height: $announcement-height;
+    right: 0;
+    top: 0;
+    color: $c-gray;
+    background-color: #fff;
+    z-index: 2;
+
+    &:focus-visible {
+      color: $c-text-black;
+    }
+  }
+}

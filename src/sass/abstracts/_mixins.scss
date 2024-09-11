@@ -1,0 +1,73 @@
+@use "./variables" as *;
+
+@mixin link-arrow($text-color) {
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-left: 0.5rem solid $text-color;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+			+ "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin link-hover($line-color, $thickness: 0.1rem) {
+  position: relative;
+
+  &::after {
+    content: "";
+    transition: width 0.3s;
+    width: 0%;
+    height: $thickness;
+    right: 0;
+    background-color: $line-color;
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &:focus-visible::after,
+  &:hover::after {
+    width: 100%;
+    left: 0;
+    right: initial;
+  }
+}
+
+@mixin inline-animation(
+  $duration: 1s,
+  $count: 1,
+  $delay: 0,
+  $timing_func: ease-out,
+  $fill_mode: forwards,
+  $direction: normal,
+  $play_state: running
+) {
+  $name: inline-#{unique-id()};
+
+  @keyframes #{$name} {
+    @content;
+  }
+
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: $count;
+  animation-delay: $delay;
+  animation-timing-function: $timing_func;
+  animation-fill-mode: $fill_mode;
+  animation-direction: $direction;
+  animation-play-state: $play_state;
+}

@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+
+#nprogress {
+  & .bar {
+    background: linear-gradient(
+      to left,
+      rgb(222, 20, 240),
+      rgb(14, 153, 245),
+      rgb(85, 248, 20),
+      rgb(255, 198, 10),
+    ) !important;
+    height: 0.3rem !important;
+  }
+
+  & .peg {
+    box-shadow: 0 0 10px $c-red, 0 0 5px $c-red !important;
+  }
+}

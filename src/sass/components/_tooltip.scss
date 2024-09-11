@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+#popup-root {
+  position: absolute;
+  top: 0;
+}
+
+.popup {
+  display: none;
+  z-index: 99;
+  position: absolute;
+  background: transparent;
+  padding-top: 1rem;
+  top: -10000px;
+
+  &--visible {
+    display: block;
+  }
+
+  &__container {
+    background-color: #fff;
+    color: $c-text-black;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 0 0.3rem #777;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      margin: auto;
+      margin-top: -1.5rem;
+      background-color: transparent;
+      border-right: 1rem solid #fff;
+      border-bottom: 1rem solid transparent;
+      transform: rotate(-45deg);
+    }
+  }
+}
