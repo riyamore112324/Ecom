@@ -37,9 +37,9 @@ export default function Footer() {
             <p className="footer__contact">
               <BiMap className="footer__contact-icon" />
               <span className="footer__contact-info">
-                46 Lakeshore St. Knoxville,
+                Mumbai,
                 <br />
-                TN 37918
+                MH 400001
               </span>
             </p>
             <p className="footer__contact">
