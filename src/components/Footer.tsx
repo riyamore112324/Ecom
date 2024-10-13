@@ -46,7 +46,7 @@ export default function Footer() {
               <BiPhone className="footer__contact-icon" />
               <span className="footer__contact-info">
                 <a className="footer__contact-link" href="tel:13124786691">
-                  +1 (312) 478 6691
+               +91 8652119224
                 </a>
               </span>
             </p>
